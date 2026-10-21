@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Binomo Chart Scanner</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#10141c;color:#fff;font-family:Arial,sans-serif;padding:18px}
+.card{max-width:440px;margin:20px auto;background:#1c2432;border:1px solid #39465b;border-radius:18px;padding:20px}
+h2{margin-top:0;color:#8db7ff}
+.sub{color:#bac5d6;font-size:14px;line-height:1.6}
+.signal{margin:22px 0;background:#111722;border-radius:14px;padding:22px 10px;text-align:center;border:1px solid #354154}
+#status{font-size:32px;font-weight:bold;color:#ffd166}
+.settings{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.item{background:#111722;padding:13px;border-radius:10px}
+.label{font-size:12px;color:#bac5d6}
+.value{font-size:18px;font-weight:bold;margin-top:7px}
+button{width:100%;padding:14px;border:0;border-radius:10px;background:#326ce5;color:white;font-size:16px;font-weight:bold;margin-top:15px}
+.note{font-size:12px;color:#bac5d6;line-height:1.6;margin-top:18px}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>📊 Binomo Signal Scanner</h2>
+<p class="sub">Bollinger Bands • OTC Chart</p>
+
+<div class="signal">
+<div class="label">CURRENT SIGNAL</div>
+<div id="status">WAIT</div>
+<p id="message" class="sub">Live chart abhi connect nahi hai.</p>
+</div>
+
+<div class="settings">
+<div class="item">
+<div class="label">Period</div>
+<div class="value">20</div>
+</div>
+<div class="item">
+<div class="label">Deviation</div>
+<div class="value">2</div>
+</div>
+<div class="item">
+<div class="label">Timeframe</div>
+<div class="value">1 minute</div>
+</div>
+<div class="item">
+<div class="label">Expiry</div>
+<div class="value">1 minute</div>
+</div>
+</div>
+
+<button onclick="showRules()">Signal Rules Dekhein</button>
+<div id="rules" class="note" hidden>
+<strong>PUT:</strong> Green candle upper band ke upar close ho.<br><br>
+<strong>CALL:</strong> Red candle lower band ke neeche close ho.<br><br>
+<strong>WAIT:</strong> Condition na mile, candle adhuri ho, ya chart reading unreliable ho.
+</div>
+
+<p class="note">
+⚠️ Yeh abhi sirf interface prototype hai. Yeh Binomo screen ko read nahi karta aur real trading signals generate nahi karta. Live scanning ke liye Android screen capture, candle detection aur overlay service alag se develop aur test karni hogi. Koi auto-trading nahi.
+</p>
+</div>
+
+<script>
+function showRules(){
+const rules=document.getElementById('rules');
+rules.hidden=!rules.hidden;
+}
+</script>
+</body>
+</html>
